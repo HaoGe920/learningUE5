@@ -9,9 +9,21 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class LEARNINGUE5_API UCPP_Object : public UObject
 {
 	GENERATED_BODY()
+
+private:
+	int PrivateInt;
+	int helpMe;
+
+public:
+	UPROPERTY(BlueprintReadWrite)
+		int PublicInt;
+	UFUNCTION(BlueprintPure)
+		int GetPrivateInt();
+	UFUNCTION(BlueprintCallable)
+		void SetPrivateInt(int privateInt);
 	
 };
