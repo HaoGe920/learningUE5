@@ -6,9 +6,19 @@
 #include "UObject/NoExportTypes.h"
 #include "CPP_Object.generated.h"
 
-/**
- * 
- */
+USTRUCT(BlueprintType)
+struct FBook
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+		FString Name;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int NbrOfPages;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float Rating;
+};
+
 UCLASS(Blueprintable)
 class LEARNINGUE5_API UCPP_Object : public UObject
 {
@@ -16,7 +26,6 @@ class LEARNINGUE5_API UCPP_Object : public UObject
 
 private:
 	int PrivateInt;
-	int helpMe;
 
 public:
 	UPROPERTY(BlueprintReadWrite)
