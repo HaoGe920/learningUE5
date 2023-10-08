@@ -66,6 +66,24 @@ void AlearningUE5Character::BeginPlay()
 	}
 }
 
+void AlearningUE5Character::RemovePickup()
+{
+	auto temp=UGameplayStatics::GetPlayerCameraManager(this, 0);
+	auto CameraLocation = temp->GetCameraLocation();
+	auto End = CameraLocation+ (temp->GetActorForwardVector()*50000);
+	TArray<AActor*> Ignore;
+	FHitResult Hit;
+	UKismetSystemLibrary::LineTraceSingle(this, CameraLocation, End, ETraceTypeQuery::TraceTypeQuery1, 0, Ignore, EDrawDebugTrace::ForDuration, Hit, true);
+	if (Hit.GetActor())
+	{
+		if (Cast<ACPP_Pickup>(Hit.GetActor())) 
+		{
+			Hit.GetActor()->Destroy();
+			UKismetSystemLibrary::PrintString(this, "Actor Destroyed");
+		}
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
