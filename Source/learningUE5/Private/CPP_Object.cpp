@@ -12,3 +12,8 @@ void UCPP_Object::SetPrivateInt(int privateInt)
 {
 	PrivateInt = privateInt;
 }
+
+void UCPP_Object::Test(UPARAM(ref)FBook& Target, UObject* Context)
+{
+	UKismetSystemLibrary::PrintString(Context, "TestFunctionCalled");
+}

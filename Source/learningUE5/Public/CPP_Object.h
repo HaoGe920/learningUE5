@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "CPP_Object.generated.h"
 
 USTRUCT(BlueprintType)
@@ -34,5 +35,7 @@ public:
 		int GetPrivateInt();
 	UFUNCTION(BlueprintCallable)
 		void SetPrivateInt(int privateInt);
+	UFUNCTION(BlueprintCallable)
+		static void Test(UPARAM(ref)FBook& Target, UObject* Context);
 	
 };
