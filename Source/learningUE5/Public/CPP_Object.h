@@ -7,6 +7,14 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "CPP_Object.generated.h"
 
+UENUM(BlueprintType)
+enum FruitList
+{
+	Apple UMETA(DisplayName="iApple"),
+	Mango,
+	Banana,
+};
+
 USTRUCT(BlueprintType)
 struct FBook
 {
