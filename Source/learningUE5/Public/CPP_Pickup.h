@@ -4,10 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "MyInterface.h"
 #include "CPP_Pickup.generated.h"
 
 UCLASS()
-class LEARNINGUE5_API ACPP_Pickup : public AActor
+class LEARNINGUE5_API ACPP_Pickup : public AActor, public IMyInterface
 {
 	GENERATED_BODY()
 	
@@ -22,5 +24,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	virtual void Interact() override;
 };
